@@ -1,9 +1,11 @@
-# Algorithm description
-This algorithm uses python in-built priority queues to insert and get elemenets depending on their priority (i.e. price and duration)
+# Опис алгоритму
+Алгоритм використовує вбудовані приоритетні черги щоб додавати та витягати елементи в залежності від їхнього приорітети (цена або тривалість)
 
-The overall process looks like this:
-1. Parse csv file and add all edges to the priority queue
-2. Pick a path (for first time, edge) that has the highest priority
-3. Iterate through all its end station connections
-4. For each connection, add updated paths to the queue
-5. Repeat step 2 until we don't find a path that covers all stations
+Алгоритм виглядає таким чином:
+1. Парсінг csv файлу та додавання маршрутів у пріоритетну чергу
+2. Вибір маршруту з найменшим приоритетом
+3. Ітерація по всім сполученням кінцевої станції маршруту
+4. Для кожного сполучення, додати оновлений маршрут у чергу
+5. Повторювати шаги 2-4 поки не знайдеться маршрут, який проходить через всі станції
+6. Взяти всі наступні маршрути в черзі, якщо їх приоритет такий самий, як у знайденого маршруту (бо всі, що залишились, будуть дорожчими)
+7. Реконструювати знайдені маршрути по вершинах (сам маршрут не зберігається в черзі для економії пам'яті)
