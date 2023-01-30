@@ -4,7 +4,7 @@ Train schedule between several stations is given in the format “train number; 
 * Best by time
 
 
-# Solution description
+# My solution description
 The algorithm uses priority queues to add and remove items depending on their priority (price or duration)
 
 The algorithm looks like this:
