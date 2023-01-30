@@ -1,11 +1,17 @@
-# Опис алгоритму
-Алгоритм використовує вбудовані приоритетні черги щоб додавати та витягати елементи в залежності від їхнього приорітети (цена або тривалість)
+# Task definition
+Train schedule between several stations is given in the format “train number; departure station; arrival station; cost; departure time; arrival time” (it is guaranteed that there are no crossings for more than a day) . It is necessary to get the “best” options (several, if possible) of travel between all stations so that you visit each station 1 time. Requests for the best options:
+* Best by price
+* Best by time
 
-Алгоритм виглядає таким чином:
-1. Парсінг csv файлу та додавання маршрутів у пріоритетну чергу
-2. Вибір маршруту з найменшим приоритетом
-3. Ітерація по всім сполученням кінцевої станції маршруту
-4. Для кожного сполучення, додати оновлений маршрут у чергу
-5. Повторювати шаги 2-4 поки не знайдеться маршрут, який проходить через всі станції
-6. Взяти всі наступні маршрути в черзі, якщо їх приоритет такий самий, як у знайденого маршруту (бо всі, що залишились, будуть дорожчими)
-7. Реконструювати знайдені маршрути по вершинах (сам маршрут не зберігається в черзі для економії пам'яті)
+
+# Solution description
+The algorithm uses priority queues to add and remove items depending on their priority (price or duration)
+
+The algorithm looks like this:
+1. Parse the csv file and adding routes to the priority queue
+2. Select the route with the highest priority (lowest price or fastest time)
+3. Iterate over all connections of the final station of the route
+4. For each connection, add the updated route to the queue
+5. Repeat steps 2-4 until you find a route that passes through all stations
+6. Take all the following routes in the queue, if their priority is the same as that of the found route (because all the remaining ones will be more expensive or slower)
+7. Reconstruct the found routes along the vertices (the route itself is not stored in the queue to save memory)
